@@ -8,7 +8,9 @@ export default function useFetchStudent() {
 
   const _getStudents = async () => {
     const response = await fetch("/api/student", {
-      cache: "no-store",
+      headers: {
+        "Cache-Control": "public, max-age=3600",
+      },
     });
     const data = await response.json();
     setStudents(data);
