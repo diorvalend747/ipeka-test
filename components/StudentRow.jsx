@@ -13,7 +13,7 @@ const StudentRow = ({
         onClickNext();
       }}
       key={index}
-      className="hover:bg-slate-100 cursor-pointer p-9"
+      className="hover:bg-slate-100 p-9"
     >
       {studentPage && (
         <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
@@ -30,7 +30,7 @@ const StudentRow = ({
         {student?.studentClass}
       </td>
       {studentPage && (
-        <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+        <td className="cursor-pointer px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
           <div
             onClick={() => {
               onClickNext(student?._id);

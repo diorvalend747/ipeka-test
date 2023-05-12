@@ -44,7 +44,7 @@ const ModalPayment = ({
             className="text-black-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
           >
             <svg
-              ariaHidden="true"
+              aria-hidden="true"
               className="w-5 h-5"
               fill="currentColor"
               viewBox="0 0 20 20"

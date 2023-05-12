@@ -132,6 +132,11 @@ function Home() {
   return (
     <>
       <div className="mt-9"></div>
+      <div className="container mb-6 mx-auto sm:p-4 w-full justify-center items-center flex cursor-pointer">
+        <h1 className="font-bold text-xl">
+          Daftar Data Transaksi Pembayaran Sekolah Kristen IPEKA
+        </h1>
+      </div>
 
       <div className="container mb-6 mx-auto sm:p-4 w-full justify-center items-center flex cursor-pointer">
         <button

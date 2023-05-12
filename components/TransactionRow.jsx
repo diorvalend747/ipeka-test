@@ -6,7 +6,7 @@ import {
 
 const StudentRow = ({ transaction, index }) => {
   return (
-    <tr key={index} className="hover:bg-slate-100 cursor-pointer p-9">
+    <tr key={index} className="hover:bg-slate-100 p-9">
       <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
         {index + 1}.
       </td>
