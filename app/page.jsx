@@ -11,8 +11,9 @@ import TransactionList from "@/components/TransactionList";
 
 function Home() {
   const [isLoadingStudent, students] = useFetchStudent();
-  const [isLoadingTransaction, transactions] = useFetchTransaction();
   const [isLoadingBank, banks] = useFetchBank();
+  const [isLoadingTransaction, setLoadingTransaction] = useState(true);
+  const [transactions, setTransactions] = useState([]);
   const [showModal, setShowModal] = useState({
     student: false,
     payment: false,
@@ -28,6 +29,17 @@ function Home() {
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState([]);
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const _getTransactons = async () => {
+    const response = await fetch("/api/payment");
+    const data = await response.json();
+    setTransactions(data);
+    setLoadingTransaction(false);
+  };
+
+  useEffect(() => {
+    _getTransactons();
+  }, []);
 
   const filterStudent = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search

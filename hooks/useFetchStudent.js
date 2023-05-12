@@ -7,11 +7,7 @@ export default function useFetchStudent() {
   const [students, setStudents] = useState([]);
 
   const _getStudents = async () => {
-    const response = await fetch("/api/student", {
-      headers: {
-        "Cache-Control": "public, s-maxage=10, stale-while-revalidate=59",
-      },
-    });
+    const response = await fetch("/api/student");
     const data = await response.json();
     setStudents(data);
     setLoading(false);
