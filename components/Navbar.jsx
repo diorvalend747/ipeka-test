@@ -34,25 +34,14 @@ const Navbar = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <a
-                href="/"
-                className={`block py-2 pl-3 pr-4 ${
-                  window.location.pathname === "/"
-                    ? "active_nav"
-                    : "inactive_nav"
-                }`}
-              >
+              <a href="/" className={`block py-2 pl-3 pr-4 active_nav`}>
                 Home
               </a>
             </li>
             <li>
               <a
                 href="/student"
-                className={`block py-2 pl-3 pr-4 ${
-                  window.location.pathname === "/student"
-                    ? "active_nav"
-                    : "inactive_nav"
-                }`}
+                className={`block py-2 pl-3 pr-4 inactive_nav`}
               >
                 Student
               </a>
