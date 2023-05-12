@@ -18,6 +18,7 @@ const ModalPayment = ({
   toStudent,
   dataPayment,
   banks,
+  isSubmit,
 }) => {
   const bankCode = banks.find((item) => item._id === dataPayment.bankCode);
 
@@ -143,10 +144,14 @@ const ModalPayment = ({
               createTransaction(e);
               generateReceipt(dataPayment, toStudent, bankCode);
             }}
-            disabled={dataPayment?.date === "" || dataPayment?.bankCode === ""}
+            disabled={
+              dataPayment?.date === "" ||
+              dataPayment?.bankCode === "" ||
+              isSubmit
+            }
             className="disabled:bg-slate-300 text-white hover:text-white hover:bg-slate-600 px-5 py-2 inline-flex text-s leading-5 font-semibold rounded-full bg-slate-500"
           >
-            Simpan dan Cetak Struk
+            {isSubmit ? "Simpan dan Cetak Struk..." : "Simpan dan Cetak Struk"}
           </button>
         </div>
       </section>

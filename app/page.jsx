@@ -27,6 +27,7 @@ function Home() {
   const [searchText, setSearchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState([]);
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const filterStudent = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
@@ -98,6 +99,7 @@ function Home() {
     e.preventDefault();
 
     try {
+      setIsSubmit(true);
       const response = await fetch("/api/payment/new", {
         method: "POST",
         body: JSON.stringify({
@@ -112,6 +114,7 @@ function Home() {
       if (response.ok) {
         window.location.reload();
       }
+      setIsSubmit(false);
     } catch (error) {
       console.log(error);
     }
@@ -171,6 +174,7 @@ function Home() {
         dataPayment={dataPayment}
         handleFormChange={_handleFormChange}
         banks={banks}
+        isSubmit={isSubmit}
       />
 
       <ModalStudent
