@@ -2,15 +2,12 @@ const StudentRow = ({
   student,
   index,
   studentPage,
-  setToStudent = () => {},
   onClickNext = () => {},
-  handleFormChange = () => {},
 }) => {
   return (
     <tr
       onClick={() => {
-        setToStudent(student);
-        onClickNext();
+        onClickNext(student?._id);
       }}
       key={index}
       className="hover:bg-slate-100 p-9 cursor-pointer"

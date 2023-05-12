@@ -1,5 +1,3 @@
-import React from "react";
-
 const Search = ({ searchText, handleSearchChange = () => {} }) => {
   return (
     <form className="w-full">

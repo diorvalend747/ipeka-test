@@ -3,9 +3,10 @@ import Bank from "@/models/bank";
 import Student from "@/models/student";
 import { connectToDB } from "@/utils/database";
 
-export const GET = async (request, { params }) => {
+export const GET = async (request, res) => {
   try {
     await connectToDB();
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
     const transaction = await Transaction.find({})
       .populate("creator")
