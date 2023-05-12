@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 export default function useFetchStudent() {
@@ -5,7 +7,9 @@ export default function useFetchStudent() {
   const [students, setStudents] = useState([]);
 
   const _getStudents = async () => {
-    const response = await fetch("/api/student");
+    const response = await fetch("/api/student", {
+      cache: "no-store",
+    });
     const data = await response.json();
     setStudents(data);
     setLoading(false);

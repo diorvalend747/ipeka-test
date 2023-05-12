@@ -1,4 +1,4 @@
-import StudentRow from "./StudentRow";
+import StudentRow from "@/components/StudentRow";
 
 const StudentList = ({
   students,

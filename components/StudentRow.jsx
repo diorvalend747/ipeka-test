@@ -8,11 +8,11 @@ const StudentRow = ({
 }) => {
   return (
     <tr
+      key={index}
       onClick={() => {
         setToStudent(student);
         onClickNext(student?._id);
       }}
-      key={index}
       className="hover:bg-slate-100 p-9 cursor-pointer"
     >
       {studentPage && (

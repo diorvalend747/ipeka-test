@@ -5,7 +5,9 @@ export default function useFetchTransaction() {
   const [transactions, setTransactions] = useState([]);
 
   const _getTransactons = async () => {
-    const response = await fetch("/api/payment");
+    const response = await fetch("/api/payment", {
+      cache: "no-store",
+    });
     const data = await response.json();
     setTransactions(data);
     setLoading(false);

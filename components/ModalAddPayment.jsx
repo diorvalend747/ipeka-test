@@ -131,6 +131,7 @@ const ModalPayment = ({
                 return (
                   <option
                     value={bank?._id}
+                    key={i}
                   >{`${bank?.bankCode} - ${bank?.bankName}`}</option>
                 );
               })}
