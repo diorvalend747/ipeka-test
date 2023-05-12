@@ -7,7 +7,7 @@ export default function useFetchTransaction() {
   const _getTransactons = async () => {
     const response = await fetch("/api/payment", {
       headers: {
-        "Cache-Control": "public, max-age=3600",
+        "Cache-Control": "public, s-maxage=10, stale-while-revalidate=59",
       },
     });
     const data = await response.json();
