@@ -1,6 +1,12 @@
 import StudentRow from "./StudentRow";
 
-const StudentList = ({ students, onClickNext = () => {}, studentPage }) => {
+const StudentList = ({
+  students,
+  onClickNext = () => {},
+  studentPage,
+  handleFormChange = () => {},
+  setToStudent = () => {},
+}) => {
   return (
     <>
       <div className="container p-9 mx-auto sm:p-4 w-full justify-center items-center flex">
@@ -34,6 +40,8 @@ const StudentList = ({ students, onClickNext = () => {}, studentPage }) => {
                   index={index}
                   onClickNext={() => onClickNext(student?._id)}
                   studentPage={studentPage}
+                  handleFormChange={handleFormChange}
+                  setToStudent={setToStudent}
                 />
               );
             })}

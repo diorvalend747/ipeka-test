@@ -3,10 +3,13 @@ const StudentRow = ({
   index,
   studentPage,
   onClickNext = () => {},
+  handleFormChange = () => {},
+  setToStudent = () => {},
 }) => {
   return (
     <tr
       onClick={() => {
+        setToStudent(student);
         onClickNext(student?._id);
       }}
       key={index}

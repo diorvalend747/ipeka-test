@@ -193,8 +193,6 @@ function Home() {
         students={students}
         setToStudent={setToStudent}
         setDataPayment={setDataPayment}
-        getPeriod={getPeriod}
-        getAmountPayment={getAmountPayment}
         handleFormChange={_handleFormChange}
         searchText={searchText}
         handleSearchChange={handleSearchChange}
