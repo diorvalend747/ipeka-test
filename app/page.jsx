@@ -8,7 +8,6 @@ import ModalPayment from "@/components/ModalAddPayment";
 import ModalStudent from "@/components/ModalStudent";
 import TransactionList from "@/components/TransactionList";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -33,10 +32,8 @@ function Home() {
   const [searchedResults, setSearchedResults] = useState([]);
   const [isSubmit, setIsSubmit] = useState(false);
 
-  const router = useRouter();
-
   const filterStudent = (searchtext) => {
-    const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+    const regex = new RegExp(searchtext, "i");
     return students.filter(
       (item) =>
         regex.test(item?.studentName) ||

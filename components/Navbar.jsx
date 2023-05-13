@@ -34,9 +34,10 @@ const Navbar = ({ routeName }) => {
             <li>
               <a
                 href="/"
-                className={`block py-2 pl-3 pr-4 ${
-                  routeName === "/" ? "active_nav" : "inactive_nav"
-                }`}
+                className={`block py-2 pl-3 pr-4 active_nav`}
+                // // className={`block py-2 pl-3 pr-4 ${
+                // //   routeName === "/" ? "active_nav" : "inactive_nav"
+                // }`}
               >
                 Home
               </a>
@@ -44,9 +45,10 @@ const Navbar = ({ routeName }) => {
             <li>
               <a
                 href="/student"
-                className={`block py-2 pl-3 pr-4 ${
-                  routeName.includes("student") ? "active_nav" : "inactive_nav"
-                }`}
+                // className={`block py-2 pl-3 pr-4 ${
+                //   routeName.includes("student") ? "active_nav" : "inactive_nav"
+                // }`}
+                className={`block py-2 pl-3 pr-4 inactive_nav`}
               >
                 Student
               </a>
