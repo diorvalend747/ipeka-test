@@ -15,5 +15,5 @@ export default function useFetchTransaction() {
     _getTransactons();
   }, []);
 
-  return [isLoadingTransaction, transactions];
+  return [isLoadingTransaction, transactions, _getTransactons];
 }

@@ -21,6 +21,14 @@ const TransactionSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Bank",
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updateAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Transaction =

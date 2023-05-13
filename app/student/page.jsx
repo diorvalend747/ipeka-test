@@ -6,7 +6,7 @@ import useFetchStudent from "@/hooks/useFetchStudent";
 import SkeletonLoader from "@/components/SkeletonLoader";
 import { useRouter } from "next/navigation";
 
-const StudentPage = () => {
+const StudentPage = ({ handleRouteName = () => {} }) => {
   const [isLoadingStudent, students] = useFetchStudent();
   const router = useRouter();
   const handleClickStudent = (id) => {

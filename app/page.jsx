@@ -6,12 +6,16 @@ import useFetchBank from "@/hooks/useFetchBank";
 import SkeletonLoader from "@/components/SkeletonLoader";
 import ModalPayment from "@/components/ModalAddPayment";
 import ModalStudent from "@/components/ModalStudent";
-import { useState, useEffect } from "react";
 import TransactionList from "@/components/TransactionList";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Home() {
   const [isLoadingStudent, students] = useFetchStudent();
-  const [isLoadingTransaction, transactions] = useFetchTransaction();
+  const [isLoadingTransaction, transactions, getTransaction] =
+    useFetchTransaction();
   const [isLoadingBank, banks] = useFetchBank();
   const [showModal, setShowModal] = useState({
     student: false,
@@ -28,6 +32,8 @@ function Home() {
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState([]);
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const router = useRouter();
 
   const filterStudent = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
@@ -94,6 +100,7 @@ function Home() {
   };
 
   const periodPayment = getPeriod();
+  const notifyCreated = () => toast("Transaksi baru telah ditambahkan!");
 
   const createTransaction = async (e) => {
     e.preventDefault();
@@ -112,7 +119,12 @@ function Home() {
       });
 
       if (response.ok) {
-        window.location.reload();
+        getTransaction();
+        setShowModal({
+          student: false,
+          payment: false,
+        });
+        notifyCreated();
       }
       setIsSubmit(false);
     } catch (error) {
@@ -198,6 +210,8 @@ function Home() {
         handleSearchChange={handleSearchChange}
         searchedResults={searchedResults}
       />
+
+      <ToastContainer />
 
       {isLoadingTransaction ? (
         <SkeletonLoader />

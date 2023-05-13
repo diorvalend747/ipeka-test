@@ -38,7 +38,7 @@ const StudentList = ({
                 <StudentRow
                   student={student}
                   index={index}
-                  onClickNext={() => onClickNext(student?._id)}
+                  onClickNext={onClickNext}
                   studentPage={studentPage}
                   handleFormChange={handleFormChange}
                   setToStudent={setToStudent}

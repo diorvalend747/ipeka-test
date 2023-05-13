@@ -1,9 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import IPEKALOGO from "../public/ipeka_logo.png";
 
-const Navbar = () => {
+const Navbar = ({ routeName }) => {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -34,14 +32,21 @@ const Navbar = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <a href="/" className={`block py-2 pl-3 pr-4 active_nav`}>
+              <a
+                href="/"
+                className={`block py-2 pl-3 pr-4 ${
+                  routeName === "/" ? "active_nav" : "inactive_nav"
+                }`}
+              >
                 Home
               </a>
             </li>
             <li>
               <a
                 href="/student"
-                className={`block py-2 pl-3 pr-4 inactive_nav`}
+                className={`block py-2 pl-3 pr-4 ${
+                  routeName.includes("student") ? "active_nav" : "inactive_nav"
+                }`}
               >
                 Student
               </a>

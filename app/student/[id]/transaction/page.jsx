@@ -24,17 +24,25 @@ const StudentTransaction = ({ params }) => {
     <div>
       <div className="mt-9"></div>
       <div className="container mb-6 mx-auto sm:p-4 w-full justify-center items-center flex cursor-pointer">
-        <h1 className="text-xl">
-          Data Pembayaran{" "}
-          <span className="font-bold text-xl">
-            {studentTransaction[0]?.creator?.studentName}
-          </span>
-        </h1>
+        {isLoading ? (
+          <></>
+        ) : studentTransaction.length > 0 ? (
+          <h1 className="text-xl">
+            Data Pembayaran{" "}
+            <span className="font-bold text-xl">
+              {studentTransaction[0]?.creator?.studentName}
+            </span>
+          </h1>
+        ) : (
+          <h1 className="text-xl">Belum Ada Data Pembayaran</h1>
+        )}
       </div>
       {isLoading ? (
         <SkeletonLoader />
-      ) : (
+      ) : studentTransaction.length > 0 ? (
         <TransactionList transactions={studentTransaction} />
+      ) : (
+        <></>
       )}
     </div>
   );
